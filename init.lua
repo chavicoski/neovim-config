@@ -119,7 +119,8 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', 
 
 -- Lualine config (status line)
 require 'lualine'.setup {
-  options = { theme = 'dracula' };
+  options = { theme = 'dracula' },
+  sections = { lualine_b = { 'branch', 'b:gitsigns_status' } }
 }
 -- End Lualine config
 
