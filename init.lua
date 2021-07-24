@@ -13,7 +13,7 @@ vim.opt.termguicolors = true  -- True color support
 vim.opt.scrolloff = 4         -- Lines of context when scrolling
 
 -- Treesitter config
-require 'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = 'maintained',
   highlight = { enable = true }
 }
@@ -75,7 +75,7 @@ end
 
 -- Compe config
 vim.o.completeopt = "menuone,noselect"
-require 'compe'.setup {
+require('compe').setup {
   enabled = true;
   autocomplete = true;
   debug = false;
@@ -118,7 +118,7 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', 
 -- End Compe config
 
 -- Lualine config (status line)
-require 'lualine'.setup {
+require('lualine').setup {
   options = { theme = 'dracula' },
   sections = { lualine_b = { 'branch', 'b:gitsigns_status' } }
 }
