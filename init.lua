@@ -73,6 +73,10 @@ for _, lsp in ipairs(servers) do
 end
 -- End LSP Config
 
+-- Autopairs Config
+require('nvim-autopairs').setup()
+-- End Autopairs Config
+
 -- Compe config
 vim.o.completeopt = "menuone,noselect"
 require('compe').setup {

@@ -5,6 +5,9 @@ return require('packer').startup(function()
   -- Autocompletion
   use 'hrsh7th/nvim-compe'
 
+  -- Autopairs
+  use 'windwp/nvim-autopairs'
+
   -- Treesitter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
