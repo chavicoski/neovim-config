@@ -5,6 +5,9 @@ return require('packer').startup(function()
   -- Autocompletion
   use 'hrsh7th/nvim-compe'
 
+  -- Show functions signatures
+  use "ray-x/lsp_signature.nvim"
+
   -- Autopairs
   use 'windwp/nvim-autopairs'
 
