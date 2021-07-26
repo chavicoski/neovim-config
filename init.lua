@@ -75,6 +75,10 @@ end
 
 -- Autopairs Config
 require('nvim-autopairs').setup()
+require("nvim-autopairs.completion.compe").setup({
+  map_cr = true, --  map <CR> on insert mode
+  map_complete = true -- it will auto insert `(` after select function or method item
+})
 -- End Autopairs Config
 
 -- Compe config
@@ -115,7 +119,7 @@ require('compe').setup {
 -- Mappings
 vim.api.nvim_set_keymap('i', '<C-e>', "compe#close('<C-e>')", { noremap = true, silent = true, expr = true })
 -- Autoselect the first match with <CR>
-vim.api.nvim_set_keymap('i', '<CR>', "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
+-- vim.api.nvim_set_keymap('i', '<CR>', "compe#confirm({ 'keys': '<CR>', 'select': v:true })", { expr = true })
 -- <Tab> to navigate the completion menu
 vim.api.nvim_set_keymap('i', '<Tab>', 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true, noremap = true })
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', { expr = true, noremap = true })
