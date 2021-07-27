@@ -70,9 +70,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>s', '<Cmd>ClangdSwitchSourceHeader<CR>', opts)
 end
 
+ -- The servers must be installed manually
+ -- Check: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
+local servers = { "pyright", 
+                  "clangd", 
+                  "cmake" }
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "clangd" } -- The servers must be installed manually
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
