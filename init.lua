@@ -11,8 +11,12 @@ vim.opt.expandtab = true      -- Use spaces instead of tabs
 vim.opt.wrap = false          -- Disable line wrap
 vim.opt.termguicolors = true  -- True color support
 vim.opt.scrolloff = 4         -- Lines of context when scrolling
-vim.o.background = "dark"      -- or "light" for light mode (for gruvbox plugin)
-vim.cmd([[colorscheme gruvbox]])
+-- Colorscheme
+vim.o.background = 'dark'      -- 'dark' or 'light' mode (for gruvbox-material plugin)
+vim.api.nvim_set_var('gruvbox_material_background', 'hard') -- 'hard', 'medium', 'soft'
+vim.api.nvim_set_var('gruvbox_material_enable_bold', 1) -- Functions in bold (like original gruvbox)
+vim.api.nvim_set_var('gruvbox_material_enable_italic', 1) -- The font must support italic
+vim.cmd([[colorscheme gruvbox-material]])
 
 -- Treesitter config
 require('nvim-treesitter.configs').setup {
@@ -25,7 +29,8 @@ vim.api.nvim_set_keymap('n', '<leader>ff', "<Cmd>lua require('telescope.builtin'
 vim.api.nvim_set_keymap('n', '<leader>fg', "<Cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<leader>fb', "<Cmd>lua require('telescope.builtin').buffers()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<leader>fh', "<Cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
-vim.api.nvim_set_keymap('n', '<leader>fc', "<Cmd>lua require('telescope.builtin').colorscheme()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>fk', "<Cmd>lua require('telescope.builtin').keymaps()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>fa', "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
 -- End Treesitter config
 
 -- LSP Config
@@ -156,7 +161,7 @@ require "lsp_signature".setup{
 
 -- Lualine config (status line)
 require('lualine').setup {
-  options = { theme = 'gruvbox' },
+  options = { theme = 'gruvbox_material' },
   sections = { lualine_b = { 'branch', 'b:gitsigns_status' } }
 }
 -- End Lualine config

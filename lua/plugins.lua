@@ -27,5 +27,5 @@ return require('packer').startup(function()
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Colorsheme
-  use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+  use 'sainnhe/gruvbox-material'
 end)
