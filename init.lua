@@ -74,6 +74,7 @@ end
  -- Check: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 local servers = { "pyright", 
                   "clangd", 
+                  "rust_analyzer",
                   "cmake" }
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -85,6 +86,9 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+-- Better Rust support
+require('rust-tools').setup({})
 -- End LSP Config
 
 -- Autopairs Config

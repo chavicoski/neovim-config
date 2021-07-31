@@ -20,6 +20,9 @@ return require('packer').startup(function()
   -- Telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 
+  -- Better Rust LSP support
+  use 'simrat39/rust-tools.nvim' -- Requires telescope, popup and plenary
+
   -- Status line
   use {'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
