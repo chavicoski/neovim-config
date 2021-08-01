@@ -20,10 +20,10 @@ vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true })
 vim.api.nvim_set_keymap('n', 'Y', 'yg_', { noremap = true })
 
 -- Move text
-vim.api.nvim_set_keymap('v', 'J', "<Cmd>m '>+1<CR>gv=gv", { noremap = true })
-vim.api.nvim_set_keymap('v', 'K', "<Cmd>m '<-2<CR>gv=gv", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>j', "<Cmd>m .+1<CR>==", { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>k', "<Cmd>m .-2<CR>==", { noremap = true })
+vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true })
+vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>j', ":m .+1<CR>==", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>k', ":m .-2<CR>==", { noremap = true })
 
 -- Better find-next and replace
 -- How to: Go to the word to change, press 'cn' or 'cN', type the new word and press '.'
