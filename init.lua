@@ -20,6 +20,9 @@ vim.api.nvim_set_var('gruvbox_material_enable_bold', 1)     -- Functions in bold
 vim.api.nvim_set_var('gruvbox_material_enable_italic', 1)   -- The font must support italic
 vim.cmd([[colorscheme gruvbox-material]])
 
+-- Load general keymaps. Plugin specific keymaps are in their corresponding plugin config file
+require('keymaps')
+
 -- Load plugins configs
 require('configs.treesitter')
 require('configs.lspconfig')
