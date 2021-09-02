@@ -30,14 +30,11 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  -- For clangd
-  buf_set_keymap('n', '<leader>s', '<Cmd>ClangdSwitchSourceHeader<CR>', opts)
 end
 
  -- The servers must be installed manually
  -- Check: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
 local servers = { "pyright", 
-                  "clangd", 
                   "rust_analyzer",
                   "cmake" }
 -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -50,3 +47,15 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+-- Servers with specific configs
+nvim_lsp["ccls"].setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  init_options = {
+    -- Look for compile_commands.json here
+    compilationDatabaseDirectory = "build"
+  }
+}
