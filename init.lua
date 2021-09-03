@@ -24,6 +24,8 @@ vim.cmd([[colorscheme gruvbox-material]])
 require('keymaps')
 
 -- Load plugins configs
+require('configs.project')
+require('configs.telescope')
 require('configs.treesitter')
 require('configs.lspconfig')
 require('configs.rust_tools')

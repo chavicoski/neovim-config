@@ -20,6 +20,9 @@ return require('packer').startup(function()
   -- Telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 
+  -- Manage projects directories
+  use 'ahmedkhalf/project.nvim'
+
   -- Tree File Explorer
   use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
 
