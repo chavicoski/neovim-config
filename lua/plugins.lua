@@ -37,4 +37,7 @@ return require('packer').startup(function()
 
   -- Colorsheme
   use 'sainnhe/gruvbox-material'
+
+  -- Markdown preview
+  use {"ellisonleao/glow.nvim"}
 end)
