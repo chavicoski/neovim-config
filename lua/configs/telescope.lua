@@ -9,3 +9,6 @@ vim.api.nvim_set_keymap('n', '<leader>fb', "<Cmd>lua require('telescope.builtin'
 vim.api.nvim_set_keymap('n', '<leader>fh', "<Cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<leader>fk', "<Cmd>lua require('telescope.builtin').keymaps()<CR>", opts)
 vim.api.nvim_set_keymap('n', '<leader>fa', "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>fp', "<Cmd>:Telescope projects<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>gs', "<Cmd>lua require('telescope.builtin').git_status()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>gc', "<Cmd>lua require('telescope.builtin').git_commits()<CR>", opts)
