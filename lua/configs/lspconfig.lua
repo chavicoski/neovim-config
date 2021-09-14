@@ -34,7 +34,7 @@ end
 
  -- The servers must be installed manually
  -- Check: https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md
-local servers = { "pyright", 
+local servers = { "pylsp",
                   "rust_analyzer",
                   "cmake" }
 -- Use a loop to conveniently call 'setup' on multiple servers and
