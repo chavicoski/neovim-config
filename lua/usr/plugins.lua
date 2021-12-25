@@ -1,4 +1,35 @@
-return require('packer').startup(function()
+-- Automatically install packer if not found
+local install_path = vim.fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  PACKER_BOOTSTRAP = vim.fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer... Close and reopen Neovim"
+  vim.cmd [[packadd packer.nvim]]
+end
+
+-- Use a protected call to avoid random errors
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  print "Error loading packer"
+  return
+end
+
+-- Show packer output in a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
+return packer.startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -40,4 +71,10 @@ return require('packer').startup(function()
 
   -- Markdown preview
   use {"ellisonleao/glow.nvim"}
+
+  -- Automatically set up the plugins after cloning packer.nvim
+  -- This must be after all plugins
+  if PACKER_BOOTSTRAP then
+    require("packer").sync()
+  end
 end)
