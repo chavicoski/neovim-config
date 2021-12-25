@@ -29,12 +29,22 @@ packer.init {
   },
 }
 
-return packer.startup(function()
+return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   -- Autocompletion
-  use 'hrsh7th/nvim-compe'
+  use "hrsh7th/nvim-cmp"         -- The completion plugin
+  use "hrsh7th/cmp-buffer"       -- Buffer completions
+  use "hrsh7th/cmp-path"         -- Path completions
+  use "hrsh7th/cmp-cmdline"      -- Cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- Snippet completions
+  use "hrsh7th/cmp-nvim-lsp"     -- LSP completions
+  use "hrsh7th/cmp-nvim-lua"     -- Neovim lua config completions
+
+  -- Snippets
+  use "L3MON4D3/LuaSnip"             -- Snippet engine
+  use "rafamadriz/friendly-snippets" -- Extend snippets
 
   -- Show functions signatures
   use "ray-x/lsp_signature.nvim"
@@ -47,6 +57,7 @@ return packer.startup(function()
 
   -- LSP manager
   use 'neovim/nvim-lspconfig'
+  use "williamboman/nvim-lsp-installer" -- To install easily LSP servers
 
   -- Telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
