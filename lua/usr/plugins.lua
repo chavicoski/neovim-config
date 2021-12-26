@@ -16,7 +16,7 @@ end
 -- Use a protected call to avoid random errors
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  vim.notify("Error: Packer not found!")
+  vim.notify("[Error]: Packer not found! (in plugins.lua)")
   return
 end
 

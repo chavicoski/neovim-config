@@ -1,5 +1,12 @@
+-- Protected call to generate prettier errors
+local telescope_status_ok, telescope = pcall(require, "telescope")
+if not telescope_status_ok then
+  vim.notify("[Error]: telescope not found! (in telescope.lua)")
+  return
+end
+
 -- Integration with project.nvim plugin
-require('telescope').load_extension('projects')
+telescope.load_extension('projects')
 
 -- Mappings
 local opts = { noremap = true }

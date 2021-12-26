@@ -1,5 +1,12 @@
+-- Protected call to generate prettier errors
+local lsp_signature_status_ok, lsp_signature = pcall(require, "lsp_signature")
+if not lsp_signature_status_ok then
+  vim.notify("[Error]: lsp_signature not found! (in lspsignature.lua)")
+  return
+end
+
 -- Plugin setup
-require "lsp_signature".setup{
+lsp_signature.setup{
   bind = true, -- This is mandatory, otherwise border config won't get registered.
                -- If you want to hook lspsaga or other signature handler, pls set to false
   doc_lines = 2, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);

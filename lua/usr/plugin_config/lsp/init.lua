@@ -1,6 +1,6 @@
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
-  vim.notify("Error: lspconfig not found!")
+  vim.notify("[Error]: lspconfig not found! (in lsp/init.lua)")
   return
 end
 

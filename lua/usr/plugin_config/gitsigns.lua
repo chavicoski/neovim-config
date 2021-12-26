@@ -1,5 +1,12 @@
+-- Protected call to generate prettier errors
+local gitsigns_status_ok, gitsigns = pcall(require, "gitsigns")
+if not gitsigns_status_ok then
+  vim.notify("[Error]: gitsigns not found! (in gitsigns.lua)")
+  return
+end
+
 -- Plugin setup
-require('gitsigns').setup {
+gitsigns.setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
     change       = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},

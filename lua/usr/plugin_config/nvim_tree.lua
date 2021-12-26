@@ -1,5 +1,12 @@
+-- Protected call to generate prettier errors
+local nvim_tree_status_ok, nvim_tree = pcall(require, "nvim-tree")
+if not nvim_tree_status_ok then
+  vim.notify("[Error]: nvim-tree not found! (in nvim_tree.lua)")
+  return
+end
+
 -- Each of these options are documented in `:help nvim-tree.OPTION_NAME`
-require'nvim-tree'.setup {
+nvim_tree.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,

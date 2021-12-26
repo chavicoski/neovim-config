@@ -1,13 +1,13 @@
 -- Setup the autocompletion and snippets plugins
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
-  vim.notify("Error: cmp not found!")
+  vim.notify("[Error]: cmp not found! (in cmp.lua)")
   return
 end
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
-  vim.notify("Error: luasnip not found!")
+  vim.notify("[Error]: luasnip not found! (in cmp.lua)")
   return
 end
 

@@ -5,7 +5,7 @@ local opts = {
     autoSetHints = true,
 
     -- Whether to show hover actions inside the hover window
-    -- This overrides the default hover handler 
+    -- This overrides the default hover handler
     hover_with_actions = true,
 
     runnables = {
@@ -69,13 +69,20 @@ local opts = {
       -- whether the hover action window gets automatically focused
       auto_focus = false
     }
-},
+  },
 
--- all the opts to send to nvim-lspconfig
--- these override the defaults set by rust-tools.nvim
--- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-server = {} -- rust-analyer options
+  -- all the opts to send to nvim-lspconfig
+  -- these override the defaults set by rust-tools.nvim
+  -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+  server = {} -- rust-analyer options
 }
 
+-- Protected call to generate prettier errors
+local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+if not rust_tools_status_ok then
+  vim.notify("[Error]: rust-tools not found! (in rust_tools.lua)")
+  return
+end
+
 -- Plugin setup
-require('rust-tools').setup(opts)
+rust_tools.setup(opts)

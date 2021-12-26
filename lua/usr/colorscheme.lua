@@ -11,6 +11,6 @@ local colorscheme = "gruvbox-material"
 -- Set colorscheme with a protected call to show a prettier error message
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-  vim.notify("Error: colorscheme " .. colorscheme .. " not found!")
+  vim.notify("[Error]: colorscheme " .. colorscheme .. " not found! (in colorscheme.lua)")
   return
 end
