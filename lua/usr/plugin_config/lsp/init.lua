@@ -1,6 +1,7 @@
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
-	return
+  vim.notify("Error: lspconfig not found!")
+  return
 end
 
 require("usr.plugin_config.lsp.lsp-installer")
