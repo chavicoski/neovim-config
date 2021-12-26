@@ -21,9 +21,6 @@ keymap('v', '>', '>gv', opts)
 -- Copy until the last non-blank character of the line (avoiding the carriage-return)
 keymap('n', 'Y', 'yg_', opts)
 
--- When pasting in visual mode avoid reseting the current copied data
-keymap('v', 'p', '_dP', opts)
-
 -- Move text
 keymap('v', 'J', ":m '>+1<CR>gv=gv", opts)
 keymap('v', 'K', ":m '<-2<CR>gv=gv", opts)
