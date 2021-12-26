@@ -59,6 +59,9 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
   use "williamboman/nvim-lsp-installer" -- To install easily LSP servers
 
+  -- Comments
+  use 'numToStr/Comment.nvim'
+
   -- Telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 

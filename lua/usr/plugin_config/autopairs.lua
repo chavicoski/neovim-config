@@ -1,5 +1,12 @@
+-- Protected call to generate prettier errors
+local autopairs_status_ok, autopairs = pcall(require, "nvim-autopairs")
+if not autopairs_status_ok then
+  vim.notify("[Error]: nvim-autopairs not found! (in autopairs.lua)")
+  return
+end
+
 -- Plugin setup
-require('nvim-autopairs').setup()
+autopairs.setup()
 
 local cmp_autopairs_status_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 if not cmp_autopairs_status_ok then
