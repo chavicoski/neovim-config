@@ -62,6 +62,9 @@ return packer.startup(function(use)
     -- Comments
     use 'numToStr/Comment.nvim'
 
+    -- Comments generator
+    use { "danymat/neogen", requires = "nvim-treesitter/nvim-treesitter" }
+
     -- Telescope
     use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
 
