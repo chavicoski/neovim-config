@@ -8,19 +8,19 @@ return {
                 { formatCommand = "isort --quiet -", formatStdin = true }
             },
             javascript = {
-                { formatCommand = "prettier ${INPUT}" },
+                { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true },
             },
             typescript = {
-                { formatCommand = "prettier ${INPUT}" },
+                { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true },
             },
             svelte = {
-                { formatCommand = "prettier ${INPUT}" },
+                { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true },
             },
             html = {
-                { formatCommand = "prettier ${INPUT}" },
+                { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true },
             },
             json = {
-                { formatCommand = "prettier ${INPUT}" },
+                { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true },
             }
         }
     }
