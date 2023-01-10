@@ -83,6 +83,9 @@ return packer.startup(function(use)
     -- Colorsheme
     use 'sainnhe/gruvbox-material'
 
+    -- Words highlighting
+    use "RRethy/vim-illuminate"
+
     -- Markdown preview
     use "ellisonleao/glow.nvim"
 
