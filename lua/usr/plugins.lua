@@ -92,6 +92,9 @@ return packer.startup(function(use)
     -- Better Rust LSP support
     use { "simrat39/rust-tools.nvim", requires = { { "nvim-lua/plenary.nvim" }, { "mfussenegger/nvim-dap" } } }
 
+    -- Scala LSP support (not using lspconfig for Scala)
+    use({ 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } })
+
     -- Automatically set up the plugins after cloning packer.nvim
     -- This must be after all plugins
     if PACKER_BOOTSTRAP then
