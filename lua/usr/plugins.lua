@@ -95,6 +95,9 @@ return packer.startup(function(use)
     -- Scala LSP support (not using lspconfig for Scala)
     use({ 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } })
 
+    -- For fun
+    use 'eandrju/cellular-automaton.nvim'
+
     -- Automatically set up the plugins after cloning packer.nvim
     -- This must be after all plugins
     if PACKER_BOOTSTRAP then
