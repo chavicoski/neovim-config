@@ -7,9 +7,7 @@ end
 require("usr.plugin_config.lsp.lsp-installer")
 require("usr.plugin_config.lsp.handlers").setup()
 
--- TODO: Delete this. We should use lsp-installer to handle all the servers.
---       We are using this because we are getting and error when installing the
---       ccls server with lsp-installer.
+-- Set up the servers that need a manual setup
 lspconfig["ccls"].setup {
   on_attach = require("usr.plugin_config.lsp.handlers").on_attach,
   capabilities = require("usr.plugin_config.lsp.handlers").capabilities,
@@ -20,4 +18,26 @@ lspconfig["ccls"].setup {
     -- Look for compile_commands.json here
     compilationDatabaseDirectory = "build"
   }
+}
+lspconfig.lua_ls.setup{
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
