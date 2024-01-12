@@ -16,19 +16,6 @@ require("mason-lspconfig").setup_handlers{
     end,
 
     -- Custom specific handlers
-    ["ccls"] = function()
-        lspconfig["ccls"].setup {
-            on_attach = require("usr.plugin_config.lsp.handlers").on_attach,
-            capabilities = require("usr.plugin_config.lsp.handlers").capabilities,
-            flags = {
-                debounce_text_changes = 150,
-            },
-            init_options = {
-                -- Look for compile_commands.json here
-                compilationDatabaseDirectory = "build"
-            }
-        }
-    end,
     ["lua_ls"] = function()
         lspconfig["lua_ls"].setup {
             settings = {
