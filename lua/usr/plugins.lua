@@ -57,7 +57,8 @@ return packer.startup(function(use)
 
     -- LSP manager
     use 'neovim/nvim-lspconfig'
-    use "williamboman/nvim-lsp-installer" -- To install easily LSP servers
+    use "williamboman/mason.nvim" -- To install easily LSP servers
+    use "williamboman/mason-lspconfig.nvim"
 
     -- Comments
     use 'numToStr/Comment.nvim'
