@@ -16,7 +16,7 @@ require("usr.plugin_config.lsp.handlers").setup()
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason-lspconfig").setup_handlers {
-    function(server_name)  -- default handler
+    function(server_name) -- default handler
         require("lspconfig")[server_name].setup {
             capabilities = capabilities,
         }
@@ -43,6 +43,18 @@ require("mason-lspconfig").setup_handlers {
                     -- Do not send telemetry data containing a randomized but unique identifier
                     telemetry = {
                         enable = false,
+                    },
+                },
+            },
+        }
+    end,
+    ["pyright"] = function()
+        lspconfig["pyright"].setup {
+            capabilities = capabilities,
+            settings = {
+                python = {
+                    analysis = {
+                        typeCheckingMode = "standard",
                     },
                 },
             },
