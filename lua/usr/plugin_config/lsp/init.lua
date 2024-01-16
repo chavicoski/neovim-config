@@ -39,5 +39,8 @@ require("mason-lspconfig").setup_handlers{
                 },
               },
         }
+    end,
+    ["efm"] = function()
+        lspconfig["efm"].setup(require("usr.plugin_config.lsp.settings.efm"))
     end
 }
